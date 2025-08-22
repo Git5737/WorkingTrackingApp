@@ -1,0 +1,61 @@
+//
+//  BaseController.swift
+//  Sketch Resource WorkingTrackingApp
+//
+//  Created by mac on 22.08.2025.
+//
+
+import UIKit
+
+enum NavBarPosition {
+    case left
+    case right
+}
+
+class BaseController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        addViews()
+        layoutViews()
+        configure()
+    }
+}
+
+@objc extension BaseController {
+    func addViews() {}
+    
+    func layoutViews() {}
+    
+    func configure() {
+        view.backgroundColor = Resouces.Colors.background
+    }
+    
+    func navBarLeftButtonHandleer() {
+        print("NavBar left button")
+    }
+    
+    func navBarRightButtonHandleer() {
+        print("NavBar right button")
+    }
+}
+
+extension BaseController {
+    func addNavBarButton(at position: NavBarPosition,  with title: String){
+        let button = UIButton(type: .system)
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(Resouces.Colors.active, for: .normal)
+        button.setTitleColor(Resouces.Colors.inactive, for: .disabled)
+        button.titleLabel?.font = Resouces.Fonts.helveticaRegualr(with: 17)
+      
+        switch position {
+        case .left:
+            button.addTarget(self, action: #selector(navBarLeftButtonHandleer), for: .touchUpInside)
+            navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+        case .right:
+            button.addTarget(self, action: #selector(navBarRightButtonHandleer), for: .touchUpInside)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+        }
+    }
+}
