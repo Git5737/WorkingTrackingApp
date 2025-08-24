@@ -12,13 +12,7 @@ final class OverviewNavBar: BaseView {
     private let titleLabel = UILabel()
     private let allWrokoutsButton = SecondaryButton()
     private let addButton = UIButton()
-    
-    private let weekView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .blue.withAlphaComponent(0.2)
-        
-        return view
-    }()
+    private let weekView = WeekView()
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -71,8 +65,8 @@ extension OverviewNavBar {
         ])
     }
     
-    override func configure() {
-        super.configure()
+    override func configureViews() {
+        super.configureViews()
         
         backgroundColor = .white
         //addBottomBoarder(with: Resouces.Colors.separator, height: 1) // not displayed correctly because the freame is not known, known in layoutSubview func
