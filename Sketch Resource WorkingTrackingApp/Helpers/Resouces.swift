@@ -50,6 +50,7 @@ enum Resouces {
         
         enum Common {
             static var chevronDown = UIImage(systemName: "chevron.down")
+            static var add = UIImage(systemName: "plus.circle")
         }
     }
     
