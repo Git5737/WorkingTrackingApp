@@ -45,8 +45,13 @@ final class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         configure()
+        swithcTo(tab: .session) // for testing
+    }
+    
+    func swithcTo(tab: Tabs) {
+        selectedIndex = tab.rawValue
     }
    
 }
