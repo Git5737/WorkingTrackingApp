@@ -30,8 +30,8 @@ final class OverviewNavBar: BaseView {
 }
 
 extension OverviewNavBar {
-    override func addViews() {
-        super.addViews()
+    override func setupViews() {
+        super.setupViews()
         
         addView(titleLabel)
         addView(allWrokoutsButton)
@@ -39,8 +39,8 @@ extension OverviewNavBar {
         addView(weekView)
     }
     
-    override func layoutViews() {
-        super.layoutViews()
+    override func constraintViews() {
+        super.constraintViews()
         
         NSLayoutConstraint.activate([
             addButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
@@ -65,8 +65,8 @@ extension OverviewNavBar {
         ])
     }
     
-    override func configureViews() {
-        super.configureViews()
+    override func configureApearence() {
+        super.configureApearence()
         
         backgroundColor = .white
         //addBottomBoarder(with: Resouces.Colors.separator, height: 1) // not displayed correctly because the freame is not known, known in layoutSubview func
