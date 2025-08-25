@@ -16,6 +16,13 @@ class BaseInfoView: BaseView {
         return label
     }()
     
+    private let button: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .red
+        
+        return button
+    }()
+    
     private let contentView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -26,15 +33,22 @@ class BaseInfoView: BaseView {
     }()
     
     
-    init(wiht title: String? = nil, aligment: NSTextAlignment = .left) {
+    init(wiht title: String? = nil, buttonTitle: String? = nil) {
         titleLabel.text = title?.uppercased()
-        titleLabel.textAlignment = aligment
+        titleLabel.textAlignment = buttonTitle == nil ? .center : .left
+        
+        button.setTitle(buttonTitle, for: .normal)
+        button.isHidden = buttonTitle == nil ? true : false
         
         super.init(frame: .zero)
     }
     
     @MainActor required init?(coder: NSCoder) {
         super.init(frame: .zero)
+    }
+    
+    func addButtonTarget(target: Any?, action: Selector) {
+        button.addTarget(target, action: action, for: .touchUpInside)
     }
 }
 
@@ -43,6 +57,7 @@ extension BaseInfoView{
         super.setupViews()
         
         addView(titleLabel)
+        addView(button)
         addView(contentView)
     }
     
@@ -56,6 +71,11 @@ extension BaseInfoView{
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             titleLabel.topAnchor.constraint(equalTo: topAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            
+            button.trailingAnchor.constraint(equalTo: trailingAnchor),
+            button.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
+            button.widthAnchor.constraint(equalToConstant: 130),
+            button.heightAnchor.constraint(equalToConstant: 30),
             
             contentView.topAnchor.constraint(equalTo: contentTopAnchor, constant: contentTopOffset),
             contentView.leadingAnchor.constraint(equalTo: leadingAnchor),

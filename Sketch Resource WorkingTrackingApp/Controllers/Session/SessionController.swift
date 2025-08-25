@@ -10,7 +10,7 @@ import UIKit
 class SessionController: BaseController {
     
     private let timerView: BaseInfoView =  {
-        let view = BaseInfoView(wiht: "Test", aligment: .center)
+        let view = BaseInfoView(wiht: "Test", buttonTit" )
         
         return view
     }()
