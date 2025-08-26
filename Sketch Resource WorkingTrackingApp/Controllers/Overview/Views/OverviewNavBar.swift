@@ -37,10 +37,10 @@ extension OverviewNavBar {
     override func setupViews() {
         super.setupViews()
         
-        addView(titleLabel)
-        addView(allWrokoutsButton)
-        addView(addButton)
-        addView(weekView)
+        setupView(titleLabel)
+        setupView(allWrokoutsButton)
+        setupView(addButton)
+        setupView(weekView)
     }
     
     override func constraintViews() {

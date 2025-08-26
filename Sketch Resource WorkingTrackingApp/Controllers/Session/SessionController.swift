@@ -9,8 +9,8 @@ import UIKit
 
 class SessionController: BaseController {
     
-    private let timerView: WABaseInfoView =  {
-        let view = WABaseInfoView(wiht: "Test", buttonTitle: "Test Button")
+    private let timerView: TimerView =  {
+        let view = TimerView()
         
         return view
     }()
@@ -20,7 +20,7 @@ extension SessionController {
     override func addViews() {
         super.addViews()
       
-        view.addView(timerView)
+        view.setupView(timerView)
     }
     
     override func layoutViews() {

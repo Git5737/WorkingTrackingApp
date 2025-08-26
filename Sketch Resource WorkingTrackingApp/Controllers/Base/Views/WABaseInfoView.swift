@@ -51,9 +51,9 @@ extension WABaseInfoView{
     override func setupViews() {
         super.setupViews()
         
-        addView(titleLabel)
-        addView(button)
-        addView(contentView)
+        setupView(titleLabel)
+        setupView(button)
+        setupView(contentView)
     }
     
     override func constraintViews() {
