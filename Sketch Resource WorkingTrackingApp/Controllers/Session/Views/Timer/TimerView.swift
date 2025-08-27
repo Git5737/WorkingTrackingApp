@@ -71,6 +71,7 @@ final class TimerView: WABaseInfoView {
     private var timerDuration = 0.0
     
     public var state: TimerState = .isStoped
+    var callBack: (() -> Void)?
     
     func configure(wiht duration: Double, progress: Double) {
         timerDuration = duration
@@ -95,6 +96,7 @@ final class TimerView: WABaseInfoView {
             if self.timerProgress > self.timerDuration {
                 self.timerProgress = self.timerDuration
                 timer.invalidate()
+                self.callBack?()
             }
             
             self.configure(wiht: self.timerDuration, progress: self.timerProgress)
