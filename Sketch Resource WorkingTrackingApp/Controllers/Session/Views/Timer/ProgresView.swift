@@ -24,7 +24,7 @@ extension TimerView {
             
             let defaultCircleLayer = CAShapeLayer()
             defaultCircleLayer.path = circlePath.cgPath
-            defaultCircleLayer.strokeColor = Resouces.Colors.inactive.cgColor
+            defaultCircleLayer.strokeColor = R.Colors.inactive.cgColor
             defaultCircleLayer.lineWidth = 20
             defaultCircleLayer.strokeEnd = 1
             defaultCircleLayer.fillColor = UIColor.clear.cgColor
@@ -32,7 +32,7 @@ extension TimerView {
             
             let circleLayer = CAShapeLayer()
             circleLayer.path = circlePath.cgPath
-            circleLayer.strokeColor = Resouces.Colors.active.cgColor
+            circleLayer.strokeColor = R.Colors.active.cgColor
             circleLayer.lineWidth = 20
             circleLayer.strokeEnd = percent
             circleLayer.fillColor = UIColor.clear.cgColor
@@ -48,7 +48,7 @@ extension TimerView {
             let bigDotLayer = CAShapeLayer()
             bigDotLayer.path = dotPaht.cgPath
             bigDotLayer.fillColor = UIColor.clear.cgColor
-            bigDotLayer.strokeColor = Resouces.Colors.active.cgColor
+            bigDotLayer.strokeColor = R.Colors.active.cgColor
             bigDotLayer.lineCap = .round
             bigDotLayer.lineWidth = 20
             
@@ -94,7 +94,7 @@ extension TimerView {
                 barLayer.path = barPath.cgPath
                 barLayer.fillColor = UIColor.clear.cgColor
                 barLayer.strokeColor = angle >= (7 / 6 - (8 / 6 * percent))
-                ? Resouces.Colors.active.cgColor : Resouces.Colors.inactive.cgColor
+                ? R.Colors.active.cgColor : R.Colors.inactive.cgColor
                 barLayer.lineCap = .round
                 barLayer.lineWidth = 4
                 

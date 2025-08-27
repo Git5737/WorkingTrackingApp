@@ -22,13 +22,13 @@ class SessionController: BaseController {
         
         timerView.state = timerView.state == .isRuning ? .isStoped : .isRuning
         
-        setTitleNavBarButton(timerView.state == .isRuning ? Resouces.Strings.Session.navBarPause : Resouces.Strings.Session.navBarStart , at: .left)
+        setTitleNavBarButton(timerView.state == .isRuning ? R.Strings.Session.navBarPause : R.Strings.Session.navBarStart , at: .left)
     }
     
     override func navBarRightButtonHandleer() {
         timerView.stopTimer()
         timerView.state = .isStoped
-        setTitleNavBarButton(Resouces.Strings.Session.navBarStart , at: .left)
+        setTitleNavBarButton(R.Strings.Session.navBarStart , at: .left)
     }
 }
 
@@ -53,12 +53,12 @@ extension SessionController {
     override func configure() {
         super.configure()
         
-        title = Resouces.Strings.NavBar.session
-        navigationController?.tabBarItem.title = Resouces.Strings.TabBar.session
+        title = R.Strings.NavBar.session
+        navigationController?.tabBarItem.title = R.Strings.TabBar.session
         timerView.configure(wiht: timerDuration, progress: 0)
         
-        addNavBarButton(at: .left, with: Resouces.Strings.Session.navBarStart)
-        addNavBarButton(at: .right, with: Resouces.Strings.Session.navBarFinish)
+        addNavBarButton(at: .left, with: R.Strings.Session.navBarStart)
+        addNavBarButton(at: .right, with: R.Strings.Session.navBarFinish)
     }
 }
 

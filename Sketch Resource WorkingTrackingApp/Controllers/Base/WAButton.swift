@@ -28,7 +28,7 @@ final class WAButton: UIButton {
     private let iconView: UIImageView = {
         let iconView = UIImageView()
         iconView.translatesAutoresizingMaskIntoConstraints = false
-        iconView.image = Resouces.Images.Common.chevronDown?.withRenderingMode(.alwaysTemplate)
+        iconView.image = R.Images.Common.chevronDown?.withRenderingMode(.alwaysTemplate)
       
         return iconView
     }()
@@ -86,16 +86,16 @@ private extension WAButton {
         
         switch type {
         case .primary:
-            lable.textColor = Resouces.Colors.inactive
-            lable.font = Resouces.Fonts.helveticaRegualr(with: 13)
-            iconView.tintColor = Resouces.Colors.inactive
+            lable.textColor = R.Colors.inactive
+            lable.font = R.Fonts.helveticaRegualr(with: 13)
+            iconView.tintColor = R.Colors.inactive
 
         case .secondary:
-            backgroundColor = Resouces.Colors.secondary
+            backgroundColor = R.Colors.secondary
             layer.cornerRadius = 14
-            lable.textColor = Resouces.Colors.active
-            lable.font = Resouces.Fonts.helveticaRegualr(with: 15)
-            iconView.tintColor = Resouces.Colors.active
+            lable.textColor = R.Colors.active
+            lable.font = R.Fonts.helveticaRegualr(with: 15)
+            iconView.tintColor = R.Colors.active
         }
         
         makeSystem(self)

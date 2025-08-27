@@ -29,7 +29,7 @@ class BaseController: UIViewController {
     func layoutViews() {}
     
     func configure() {
-        view.backgroundColor = Resouces.Colors.background
+        view.backgroundColor = R.Colors.background
     }
     
     func navBarLeftButtonHandleer() {
@@ -45,9 +45,9 @@ extension BaseController {
     func addNavBarButton(at position: NavBarPosition,  with title: String){
         let button = UIButton(type: .system)
         button.setTitle(title, for: .normal)
-        button.setTitleColor(Resouces.Colors.active, for: .normal)
-        button.setTitleColor(Resouces.Colors.inactive, for: .disabled)
-        button.titleLabel?.font = Resouces.Fonts.helveticaRegualr(with: 17)
+        button.setTitleColor(R.Colors.active, for: .normal)
+        button.setTitleColor(R.Colors.inactive, for: .disabled)
+        button.titleLabel?.font = R.Fonts.helveticaRegualr(with: 17)
       
         switch position {
         case .left:

@@ -22,14 +22,14 @@ extension WeekView {
             
             let isTooday = currentDay.stripTime() == Date().stripTime()
             
-            backgroundColor = isTooday ? Resouces.Colors.active : Resouces.Colors.background
+            backgroundColor = isTooday ? R.Colors.active : R.Colors.background
             
             nameLabel.text = name.uppercased()
-            nameLabel.textColor = isTooday ? .white : Resouces.Colors.inactive
+            nameLabel.textColor = isTooday ? .white : R.Colors.inactive
             
             nameLabel.text = name.uppercased()
             dateLabel.text = "\(day)"
-            dateLabel.textColor = isTooday ? .white : Resouces.Colors.inactive
+            dateLabel.textColor = isTooday ? .white : R.Colors.inactive
         }
     }
 }
@@ -59,10 +59,10 @@ extension WeekView.WeekdayView {
         layer.cornerRadius = 5
         layer.masksToBounds = true
         
-        nameLabel.font = Resouces.Fonts.helveticaRegualr(with: 9)
+        nameLabel.font = R.Fonts.helveticaRegualr(with: 9)
         nameLabel.textAlignment = .center
         
-        dateLabel.font = Resouces.Fonts.helveticaRegualr(with: 15)
+        dateLabel.font = R.Fonts.helveticaRegualr(with: 15)
         dateLabel.textAlignment = .center
         
         stackView.spacing = 2

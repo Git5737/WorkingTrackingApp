@@ -12,7 +12,7 @@ final class OverviewNavBar: BaseView {
     private let titleLabel = UILabel()
     private let allWrokoutsButton: WAButton = {
         let button = WAButton(with: .secondary)
-        button.setTitle(Resouces.Strings.Overview.allWarcoutsButton)
+        button.setTitle(R.Strings.Overview.allWarcoutsButton)
         return button
     }()
     private let addButton = UIButton()
@@ -21,7 +21,7 @@ final class OverviewNavBar: BaseView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        addBottomBoarder(with: Resouces.Colors.separator, height: 1)
+        addBottomBoarder(with: R.Colors.separator, height: 1)
     }
     
     func addAllWrorkoutsAction(_ action: Selector, with target: Any?) {
@@ -75,12 +75,12 @@ extension OverviewNavBar {
         //addBottomBoarder(with: Resouces.Colors.separator, height: 1) // not displayed correctly because the freame is not known, known in layoutSubview func
         
         // AutoMask is off on UIVIew + ext
-        titleLabel.text = Resouces.Strings.NavBar.overview
-        titleLabel.textColor = Resouces.Colors.titleGray
-        titleLabel.font = Resouces.Fonts.helveticaRegualr(with: 22)
+        titleLabel.text = R.Strings.NavBar.overview
+        titleLabel.textColor = R.Colors.titleGray
+        titleLabel.font = R.Fonts.helveticaRegualr(with: 22)
         
         //allWrokoutsButton.addTarget(self, action: #selector(allWorkoutsButtonAction), for: .touchUpInside)
         
-        addButton.setImage(Resouces.Images.Common.add, for: .normal)
+        addButton.setImage(R.Images.Common.add, for: .normal)
     }
 }

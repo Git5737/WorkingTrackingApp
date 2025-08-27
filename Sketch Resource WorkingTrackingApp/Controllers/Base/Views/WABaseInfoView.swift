@@ -11,8 +11,8 @@ class WABaseInfoView: BaseView {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = Resouces.Fonts.helveticaRegualr(with: 13)
-        label.textColor = Resouces.Colors.inactive
+        label.font = R.Fonts.helveticaRegualr(with: 13)
+        label.textColor = R.Colors.inactive
         return label
     }()
     
@@ -21,7 +21,7 @@ class WABaseInfoView: BaseView {
     private let contentView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
-        view.layer.borderColor = Resouces.Colors.separator.cgColor
+        view.layer.borderColor = R.Colors.separator.cgColor
         view.layer.borderWidth = 1
         view.layer.cornerRadius = 5
         return view
