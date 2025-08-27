@@ -38,6 +38,18 @@ enum Resouces {
         enum Overview {
             static var allWarcoutsButton = "All workouts"
         }
+        
+        enum Session {
+            static let navBarStart = "Start    "
+            static let navBarPause = "Pause"
+            static let navBarFinish = "Finish"
+        }
+        
+        enum Progres {
+            
+        }
+        
+        enum Settings {}
     }
     
     enum Images {

@@ -11,6 +11,8 @@ extension TimerView {
     final class ProgresView: UIView {
         func drawProgres(with percent: CGFloat) {
             
+            layer.sublayers?.removeAll()
+            
             let circleFrame = UIScreen.main.bounds.width - (15 + 40) * 2
             let radius = circleFrame / 2
             let center = CGPoint(x: radius, y: radius)
