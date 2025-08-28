@@ -27,7 +27,6 @@ final class TimerView: WABaseInfoView {
     
     private let elapsedTimerValueLabel: UILabel = {
         let label = UILabel()
-        label.text = "02:15"
         label.font = R.Fonts.helveticaRegualr(with: 46)
         label.textColor = R.Colors.titleGray
         label.textAlignment = .center
@@ -48,7 +47,6 @@ final class TimerView: WABaseInfoView {
     private let remainingTimerValueLabel: UILabel = {
         let label = UILabel()
         label.font = R.Fonts.helveticaRegualr(with: 13)
-        label.text = "12:45"
         label.textColor = R.Colors.titleGray
         label.textAlignment = .center
         
@@ -60,6 +58,25 @@ final class TimerView: WABaseInfoView {
         view.axis = .vertical
         view.distribution = .fillProportionally
         view.spacing = 10
+        
+        return view
+    }()
+    
+    private let bottomStackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .horizontal
+        view.distribution = .fillProportionally
+        view.spacing = 25
+        
+        return view
+    }()
+    
+    private let completedPercentView = PercentView()
+    private let remainingPercentView = PercentView()
+    
+    private let bottomSeparetorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = R.Colors.separator
         
         return view
     }()
@@ -79,9 +96,12 @@ final class TimerView: WABaseInfoView {
         let tempCurrentValue = progress > duration ? duration : progress
         let goalValueDevider = duration == 0 ? 1 : duration
         let percent = tempCurrentValue / goalValueDevider
+        let roundedPercent = Int(round(percent * 100))
         
         elapsedTimerValueLabel.text = getDisplayedString(from: Int(tempCurrentValue))
         remainingTimerValueLabel.text = getDisplayedString(from: Int(duration) - Int(tempCurrentValue))
+        completedPercentView.configure(with: R.Strings.Session.completion, andValue: roundedPercent)
+        remainingPercentView.configure(with: R.Strings.Session.remaining, andValue: 100 - roundedPercent)
         
         progressView.drawProgres(with: CGFloat(percent))
     }
@@ -116,7 +136,7 @@ final class TimerView: WABaseInfoView {
                                      repeats: true,
                                      block: { [weak self] timer in
             guard let self = self else { return }
-            self.timerProgress -= 0.1
+            self.timerProgress -= self.timerDuration * 0.01
             
             if self.timerProgress <= 0 {
                 self.timerProgress = 0
@@ -135,6 +155,7 @@ extension TimerView {
         
         setupView(progressView)
         setupView(timerStackView)
+        setupView(bottomStackView)
         
         
         [
@@ -145,20 +166,33 @@ extension TimerView {
         ].forEach {
             timerStackView.addArrangedSubview($0)
         }
+        
+        [
+            completedPercentView,
+            bottomSeparetorView,
+            remainingPercentView
+        ].forEach(bottomStackView.addArrangedSubview)
     }
     
     override func constraintViews() {
         super.constraintViews()
         
         NSLayoutConstraint.activate([
-            progressView.topAnchor.constraint(equalTo: topAnchor, constant: 40),
             progressView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
+            progressView.topAnchor.constraint(equalTo: topAnchor, constant: 40),
             progressView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
             progressView.heightAnchor.constraint(equalTo: progressView.widthAnchor),
             progressView.bottomAnchor.constraint(equalTo: bottomAnchor, constant:  -40),
             
             timerStackView.centerXAnchor.constraint(equalTo: progressView.centerXAnchor),
             timerStackView.centerYAnchor.constraint(equalTo: progressView.centerYAnchor),
+            
+            bottomStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -28),
+            bottomStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            bottomStackView.heightAnchor.constraint(equalToConstant: 35),
+            bottomStackView.widthAnchor.constraint(equalToConstant: 175),
+            
+            bottomSeparetorView.widthAnchor.constraint(equalToConstant: 1)
         ])
     }
     

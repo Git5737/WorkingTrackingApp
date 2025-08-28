@@ -18,6 +18,7 @@ enum R {
         static let secondary = UIColor(hex: "#F0F3FFFF")
         
         static let titleGray = UIColor.black
+        static let subtitleGray = UIColor(hex: "#D8D8D8FF")
     }
     
     enum Strings {
@@ -46,6 +47,9 @@ enum R {
             
             static let elapsedTime = "Elapsed Time"
             static let remainingTime = "Remaining Time"
+            
+            static let completion = "COMPLETION"
+            static let remaining = "REMAINING"
         }
         
         enum Progres {
