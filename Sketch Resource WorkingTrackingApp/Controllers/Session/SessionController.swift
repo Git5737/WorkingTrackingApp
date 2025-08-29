@@ -11,7 +11,7 @@ class SessionController: BaseController {
     
     private let timerView = TimerView()
     private let statsView = StatsView(wiht: R.Strings.Session.workoutStats)
-    private let stepsView = WABaseInfoView(wiht: R.Strings.Session.stepsCounter)
+    private let stepsView = StepsView(wiht: R.Strings.Session.stepsCounter)
     
     private let timerDuration = 15.0
     
@@ -82,6 +82,12 @@ extension SessionController {
                                    .totoalDistance(value: "7,682"),
                                    .totalSteps(value: "12,345"),
                                   ])
+        
+        stepsView.configure(with: [.init(value: "8k", heightMultiplier: 1, title: "2/14"),
+                                   .init(value: "7k", heightMultiplier: 0.8, title: "2/15"),
+                                   .init(value: "5k", heightMultiplier: 0.5, title: "2/16"),
+                                   .init(value: "6k", heightMultiplier: 0.6, title: "2/17")
+        ])
     }
 }
 
