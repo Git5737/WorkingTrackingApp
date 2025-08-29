@@ -35,16 +35,16 @@ class SessionController: BaseController {
 }
 
 extension SessionController {
-    override func addViews() {
-        super.addViews()
+    override func setupViews() {
+        super.setupViews()
       
         view.setupView(timerView)
         view.setupView(statsView)
         view.setupView(stepsView)
     }
     
-    override func layoutViews() {
-        super.layoutViews()
+    override func constaintView() {
+        super.constaintView()
         
         NSLayoutConstraint.activate([
             timerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
@@ -61,8 +61,8 @@ extension SessionController {
         ])
     }
     
-    override func configure() {
-        super.configure()
+    override func configureAppearance() {
+        super.configureAppearance()
         
         title = R.Strings.NavBar.session
         navigationController?.tabBarItem.title = R.Strings.TabBar.session
