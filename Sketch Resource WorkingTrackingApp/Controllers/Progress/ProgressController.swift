@@ -10,6 +10,7 @@ import UIKit
 class ProgressController: BaseController {
     
     private let dailyPerformanceView = DailyPervormanceView(wiht: R.Strings.Progress.dailyPerformance, buttonTitle: R.Strings.Progress.last7Days)
+    private let monthlyPerformanceView = MonthlyPerformanceView(wiht: R.Strings.Progress.monthlyPerformance, buttonTitle: R.Strings.Progress.last10Monts)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,7 @@ extension ProgressController {
         super.setupViews()
         
         view.setupView(dailyPerformanceView)
+        view.setupView(monthlyPerformanceView)
     }
     
     override func constaintView() {
@@ -30,7 +32,12 @@ extension ProgressController {
             dailyPerformanceView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             dailyPerformanceView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
             dailyPerformanceView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-            dailyPerformanceView.heightAnchor.constraint(equalTo: dailyPerformanceView.widthAnchor, multiplier: 0.68)
+            dailyPerformanceView.heightAnchor.constraint(equalTo: dailyPerformanceView.widthAnchor, multiplier: 0.68),
+            
+            monthlyPerformanceView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            monthlyPerformanceView.topAnchor.constraint(equalTo: dailyPerformanceView.bottomAnchor, constant: 15),
+            monthlyPerformanceView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+            monthlyPerformanceView.heightAnchor.constraint(equalTo: monthlyPerformanceView.widthAnchor, multiplier: 1.06),
         ])
     }
     
@@ -50,6 +57,19 @@ extension ProgressController {
                                               .init(value: "10k", heightMultiplier: 1, title: "FRI"),
                                               .init(value: "3k", heightMultiplier: 0.3, title: "SAT"),
                                               .init(value: "5k", heightMultiplier: 0.5, title: "SUN"),
+        ])
+        
+        
+        monthlyPerformanceView.configure(with: [.init(value: 45, title: "Mar"),
+                                                .init(value: 55, title: "Apr"),
+                                                .init(value: 60, title: "May"),
+                                                .init(value: 65, title: "Jun"),
+                                                .init(value: 70, title: "Jul"),
+                                                .init(value: 80, title: "Aug"),
+                                                .init(value: 65, title: "Sep"),
+                                                .init(value: 45, title: "Okt"),
+                                                .init(value: 30, title: "Nov"),
+                                                .init(value: 15, title: "Dev"),
         ])
     }
     

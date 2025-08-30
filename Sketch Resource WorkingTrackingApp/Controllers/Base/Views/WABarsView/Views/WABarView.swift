@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 extension WABarView {
     struct Data {
         let value: String
@@ -45,7 +43,7 @@ final class WABarView: WABaseView {
         return label
     }()
     
-    init(data: Data) {
+    init(data: WABarView.Data) {
         self.heightMultiplier = data.heightMultiplier
         super.init(frame: .zero)
         
@@ -90,7 +88,6 @@ extension WABarView{
             titleLable.centerXAnchor.constraint(equalTo: centerXAnchor),
             titleLable.bottomAnchor.constraint(equalTo: bottomAnchor),
             titleLable.heightAnchor.constraint(equalToConstant: 10)
-             
         ])
        
     }

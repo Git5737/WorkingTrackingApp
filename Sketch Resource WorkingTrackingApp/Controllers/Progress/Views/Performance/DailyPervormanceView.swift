@@ -32,7 +32,6 @@ extension DailyPervormanceView {
             barsView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             barsView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             barsView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
-            barsView.heightAnchor.constraint(equalToConstant: 172) // TODO: Need to fix it
         ])
     }
     
