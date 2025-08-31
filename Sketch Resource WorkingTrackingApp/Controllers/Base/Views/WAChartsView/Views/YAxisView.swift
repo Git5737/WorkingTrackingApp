@@ -19,6 +19,8 @@ final class YAxisView: WABaseView {
     
     
     func configure(with data: [WAChartsView.Data]) {
+        guard let maxValue = data.sorted(by: { $0.value > $1.value } ).first?.value else { return }
+        
         stackView.arrangedSubviews.forEach{
             $0.removeFromSuperview()
         }
