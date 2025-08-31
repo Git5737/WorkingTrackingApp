@@ -47,7 +47,7 @@ final class TabBarController: UITabBarController {
         super.viewDidLoad()
     
         configure()
-        swithcTo(tab: .progres) // for testing
+        //swithcTo(tab: .progres) // for testing
     }
     
     func swithcTo(tab: Tabs) {
