@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum CellRoundedType {
+    case top, bottom, all, notRounded
+}
+
 final class TrainingCellView: UICollectionViewCell {
     
     static let id = "TrainingCellView"
@@ -69,11 +73,18 @@ final class TrainingCellView: UICollectionViewCell {
         configureApearence()
     }
     
-    func configure(with title: String, subtitle: String, isDone: Bool) {
+    func configure(with title: String, subtitle: String, isDone: Bool, roundedType: CellRoundedType) {
         self.title.text = title
         self.subtitle.text = subtitle
         
         checkMakrView.image = isDone ? R.Images.Overview.checkmark : R.Images.Overview.circle
+        
+        switch roundedType {
+        case .notRounded: self.roundCorners([.allCorners], radius: 0)
+        case .bottom: self.roundCorners([.bottomLeft, .bottomRight], radius: 10)
+        case .top: self.roundCorners([.topLeft, .topRight], radius: 10)
+        case .all: self.roundCorners([.allCorners], radius: 10)
+        }
     }
     
 }
