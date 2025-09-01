@@ -84,7 +84,15 @@ enum R {
         enum Common {
             static let chevronDown = UIImage(systemName: "chevron.down")
             static let add = UIImage(systemName: "plus.circle")
-            
+        }
+        
+        enum Overview {
+            static let chevronRight = UIImage(systemName: "chevron.right")
+            static let circle = UIImage(systemName: "dot.circle")
+            static let checkmark = UIImage(systemName: "checkmark.circle")
+        }
+        
+        enum Session {
             static let heart = UIImage(systemName: "heart")
             static let pace = UIImage(systemName: "space")
             static let step = UIImage(systemName: "figure.step.training")
